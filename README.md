@@ -103,5 +103,5 @@ Priority queue implementation used for building the Huffman tree efficiently.
 This project is for educational purposes.
 
 ## Author
-
+Muhammad Inaam ul haq
 Master's Program Project - 2026

@@ -13,15 +13,12 @@ class myQueue
 public:
     myQueue(int);
     ~myQueue();
-
     void enqueue(HuffmanNode *);
     HuffmanNode *dequeue();
     bool isFull();
     bool isEmpty();
 };
 
-// #ifndef MYQUEUE_IMPLEMENTATION
-// #define MYQUEUE_IMPLEMENTATION
 
 inline myQueue::myQueue(int s)
 {

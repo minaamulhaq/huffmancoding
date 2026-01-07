@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <fstream>
 #include "BinaryCode.h"
 using namespace std;
 
@@ -39,5 +40,46 @@ public:
                 cout << endl;
             }
         }
+    }
+
+    void saveToFile(string filename)
+    {
+        ofstream out(filename);
+
+        for (int i = 0; i < 256; i++)
+        {
+            if (table[i].length > 0)
+            {
+                out << i << " "
+                    << table[i].bits << " "
+                    << table[i].length << endl;
+            }
+        }
+
+        out.close();
+        cout << "Key map saved to " << filename << endl;
+    }
+
+    void loadFromFile(string filename)
+    {
+        ifstream in(filename);
+
+        int ch;
+        unsigned int bits;
+        int length;
+
+        for (int i = 0; i < 256; i++)
+        {
+            table[i].bits = 0;
+            table[i].length = 0;
+        }
+
+        while (in >> ch >> bits >> length)
+        {
+            table[ch].bits = bits;
+            table[ch].length = length;
+        }
+
+        in.close();
     }
 };
